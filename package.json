@@ -1,0 +1,29 @@
+{
+  "name": "ui-harness.site",
+  "version": "1.0.0",
+  "description": "Project site for the ui-harness tool.",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "scripts": {
+    "ui": "node ./node_modules/@storybook/react/dist/server/index.js -p 3030 -c ./.storybook -s ./static",
+    "start": "node .",
+    "watch": "nodemon . -e js --ignore src",
+    "test": "sh ./node_modules/@tdb/typescript/sh/mocha.sh",
+    "tdd": "yarn run test -- --reporter min --watch",
+    "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
+    "build": "rm -rf ./lib && tsc",
+    "prepublish": "yarn run lint && yarn test && yarn run build"
+  },
+  "dependencies": {
+    "@tdb/util": "^1.0.72"
+  },
+  "devDependencies": {
+    "@tdb/ui.test": "^3.0.13",
+    "@tdb/typescript": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philcockfield/ui-harness.site"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,2 +1,3 @@
-console.log(`\n-- Started --\n\n`); // tslint:disable-line
+import { init } from '@tdb/web.server';
+init().start(8080);
 

@@ -11,15 +11,20 @@
     "test": "sh ./node_modules/@tdb/typescript/sh/mocha.sh",
     "tdd": "yarn run test -- --reporter min --watch",
     "lint": "sh ./node_modules/@tdb/typescript/sh/lint.sh",
+    "now-build": "echo no-op",
     "build": "rm -rf ./lib && tsc",
-    "prepublish": "yarn run lint && yarn test && yarn run build"
+    "build:next": "yarn build && next build ./lib",
+    "prepublish": "yarn run lint && yarn test && yarn run build",
+    "deploy": "sh ./node_modules/@tdb/web.server/sh/deploy.sh",
+    "release": "now ln"
   },
   "dependencies": {
-    "@tdb/util": "^1.0.72"
+    "@tdb/util": "^1.0.72",
+    "@tdb/web.server": "^1.1.3"
   },
   "devDependencies": {
-    "@tdb/ui.test": "^3.0.13",
-    "@tdb/typescript": "^2.2.0"
+    "@tdb/typescript": "^2.2.0",
+    "@tdb/ui.test": "^3.0.13"
   },
   "repository": {
     "type": "git",
